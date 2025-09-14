@@ -1,7 +1,15 @@
-# Homework_1_NLP_700765221
+# Homework#1 Natural Language Processing 700765221
+
+**Student Name:** Sai Siva Shankara Vara Prasad Kopparthi
+
+**Student ID:** 700765221
+
+---
+
 This is my Homework 1 submission along with ReadMe Explanation and Source Code.
 
-# **Q1. Regex**
+
+## **Q1. Regex**
 
 ### **1. U.S. ZIP Codes**
 
@@ -73,5 +81,28 @@ Examples:
 * `Are you okay?`
 * `Really?”`
 * `This is true?)”   `
+
+---
+
+## Q4. Word Pair: *Sunday → Saturday*
+
+**Q4.1 (Model A: Sub=1, Ins=1, Del=1)**
+
+* Edit sequence: Insert `a`, insert `tur`, delete `n`
+* The Distance = **3**
+
+**Q4.2 (Model B: Sub=2, Ins=1, Del=1)**
+
+* Edit sequence: Insert `a`, insert `tur`, delete `n`
+* The Distance = **4**
+
+**Q4.3 Reflection**
+
+* Model A = 3 edits, Model B = 4 edits
+* Model A uses cheaper substitutions, fewer steps
+* Model B avoids expensive substitutions, more insertions/deletions
+* Applications:
+  - Spell check → cheap substitutions
+  - DNA alignment → cheap insertions/deletions
 
 ---
