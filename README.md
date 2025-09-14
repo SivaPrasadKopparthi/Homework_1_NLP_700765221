@@ -86,17 +86,17 @@ Examples:
 
 ## Q4. Word Pair: *Sunday → Saturday*
 
-**Q4.1 (Model A: Sub=1, Ins=1, Del=1)**
+**1. (Model A: Sub=1, Ins=1, Del=1)**
 
 * Edit sequence: Insert `a`, insert `tur`, delete `n`
 * The Distance = **3**
 
-**Q4.2 (Model B: Sub=2, Ins=1, Del=1)**
+**2. (Model B: Sub=2, Ins=1, Del=1)**
 
 * Edit sequence: Insert `a`, insert `tur`, delete `n`
 * The Distance = **4**
 
-**Q4.3 Reflection**
+**3. Reflection**
 
 * Model A = 3 edits, Model B = 4 edits
 * Model A uses cheaper substitutions, fewer steps
