@@ -106,6 +106,76 @@ Examples:
  - Tools like NLTK handle Unicode but may not fully capture Telugu MWEs, so extra care is needed.
 ---
 
+## Q3: Manual BPE on a Toy Corpus
+
+### 3.1 Toy Corpus
+
+**Corpus:** `low low low low low lowest lowest newer newer newer newer newer newer wider wider wider new new`
+
+**Initial vocab (with `_` as end-of-word):**
+
+```
+l o w _ : 5
+l o w e s t _ : 2
+n e w e r _ : 6
+w i d e r _ : 3
+n e w _ : 2
+```
+
+**First 3 merges:**
+
+1. `e r` → `er`
+2. `er _` → `er_`
+3. `n e` → `ne`
+
+**Updated vocab:**
+
+```
+l o w _ : 5
+l o w e s t _ : 2
+ne w er_ : 6
+w i d er_ : 3
+ne w _ : 2
+```
+
+---
+
+### 3.2 Mini-BPE Learner
+
+**Top 10 merges:** `('e','r'), ('er','_'), ('n','e'), ('ne','w'), ('l','o'), ('lo','w'), ('new','er_'), ('low','_'), ('w','i'), ('wi','d')`
+
+**Word segmentation examples:**
+
+```
+new → [new, _]
+newer → [newer_]
+lowest → [low, e, s, t, _]
+wider → [wid, er_]
+```
+
+**Reflection:** Subword tokens reduce OOV issues, capture common morphemes like `er_`, and allow rare words to be represented using familiar units.
+
+---
+
+### 3.3 BPE on a Paragraph
+
+**Top 5 merges:** `('a','n'), ('e','_'), ('s','_'), ('d','_'), ('o','r')`
+**Longest subwords:** `subwor, and_, age_, wor, how`
+
+**Word segmentation examples:**
+
+```
+processing → [pr, o, ce, s, si, ng_]
+tokenization → [to, k, en, i, z, at, i, on_]
+subword → [subwor, d_]
+morphological → [m, or, p, ho, l, o, g, i, c, al, _]
+coverage → [co, v, er, age_]
+```
+
+**Reflection:** BPE captures frequent prefixes, suffixes, and stems, reduces vocab size, handles rare words, and generalizes to unseen words. Drawback: splits can sometimes create meaningless fragments.
+
+---
+
 ## Q4. Word Pair: *Sunday → Saturday*
 
 **1. (Model A: Sub=1, Ins=1, Del=1)**
