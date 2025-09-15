@@ -84,6 +84,28 @@ Examples:
 
 ---
 
+## Q2. Tokenization (Telugu Example)
+
+**Paragraph (Telugu):**
+
+```
+నేను హైదరాబాద్ లో చదువుతున్నాను. నా స్నేహితుడు తెలుగు సినిమాలు చూడడం ఇష్టపడతాడు. మేము ప్రతి వారాంతం కలిసి బయటికి వెళ్తాము.
+```
+
+**Tokenization:**
+
+* **Naïve split:** Breaks only by spaces, keeps punctuation attached.
+* **Manual correction:** Removes punctuation, cleaner tokens.
+* **NLTK tokenizer:** Handles Unicode Telugu text, but sometimes splits compound words awkwardly.
+* **MWEs (Multiword Expressions):** `"తెలుగు సినిమాలు"`, `"ప్రతి వారాంతం"`, `"హైదరాబాద్ లో"` should be treated as single tokens.
+
+**Reflection:**
+ - Tokenization in Telugu is harder than English because of compound words and rich morphology.
+ - Naïve splitting by spaces often leaves punctuation attached to words.
+ - Manual correction improves results, but still misses some cases.
+ - Tools like NLTK handle Unicode but may not fully capture Telugu MWEs, so extra care is needed.
+---
+
 ## Q4. Word Pair: *Sunday → Saturday*
 
 **1. (Model A: Sub=1, Ins=1, Del=1)**
